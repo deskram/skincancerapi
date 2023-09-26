@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Detection</title>
+    <!-- تضمين مكتبة Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- تضمين ملف CSS الخاص بك -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="text-center mt-5">
+            <h1>Cancer Detection</h1>
+        </header>
+        <main>
+            <form id="upload-form" action="/predict" method="post" enctype="multipart/form-data" class="text-center mt-4">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="file-input" name="file" accept="image/*">
+                    <label class="custom-file-label" for="file-input" id="file-label">Choose Image</label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" id="submit-button" disabled>Predict</button>
+            </form>
+            <div id="result" class="text-center mt-4 hidden">
+                <p>Prediction: <span id="prediction"></span></p>
+                <img id="predicted-image" src="" alt="Predicted Image" class="img-fluid">
+            </div>
+        </main>
+    </div>
+
+    <!-- تضمين مكتبة Bootstrap JS وملف الجافا سكربت الخاص بك -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
